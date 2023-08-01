@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0a91b3;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.column {
+    flex: 0 0 calc(33.33% - 20px);
+    background-color: #8b3ffc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #ffff03;
+    color: #e80756;
+    padding: 10px;
+    text-align: center;
+}
