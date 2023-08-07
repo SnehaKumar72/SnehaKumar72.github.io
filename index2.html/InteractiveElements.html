@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive</title>
+</head>
+<body>
+    <h1>Interactive Button</h1>
+    <p id="changingText">Click the button below  to see the Magic!</p>
+    <button id="colorButton">click here</button>
+
+    <script>
+        document.getElementById("colorButton").addEventListener("click", function () {
+            var changingText = document.getElementById("changingText");
+            var currentColor = changingText.style.color;
+
+            if (currentColor === "red") {
+                changingText.style.color = "yellow";
+            } else {
+                changingText.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
