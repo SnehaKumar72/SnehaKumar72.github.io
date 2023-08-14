@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Website</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("https://www.vmcdn.ca/f/files/shared/stock-images/shopping.jpg;w=1200;h=800;mode=crop");
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #5557f1;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+    .cart {
+      border: 1px solid #43f7f1;
+      padding: 20px;
+      margin: 20px;
+      background-color: #d6d4d4;
+      border-radius: 5px;
+    }
+    .cart-item {
+      margin-bottom: 10px;
+    }
+    .total {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Hello!! Welcome to My Shopping Website</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Products</h2>
+        <div class="row">
+          <div class="col-md-4 product">
+            <h3>Product 1</h3>
+            <p>Price: $20</p>
+            <button class="btn btn-primary add-to-cart" data-product="Product 1" data-price="20">Add to Cart</button>
+          </div>
+          <div class="col-md-4 product">
+            <h3>Product 2</h3>
+            <p>Price: $30</p>
+            <button class="btn btn-primary add-to-cart" data-product="Product 2" data-price="30">Add to Cart</button>
+          </div>
+          <!-- Add more product items here -->
+        </div>
+      </div>
+      <div class="col-md-4 cart">
+        <h2>Shopping Cart</h2>
+        <ul class="cart-items list-unstyled">
+          <!-- Cart items will be added dynamically using JavaScript -->
+        </ul>
+        <p class="total">Total: $<span id="cart-total">0</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      let cartItems = [];
+      let cartTotal = 0;
+
+      $(".add-to-cart").click(function() {
+        const product = $(this).data("product");
+        const price = $(this).data("price");
+
+        cartItems.push(product);
+        cartTotal += price;
+
+        updateCartUI();
+      });
+
+      function updateCartUI() {
+        $(".cart-items").empty();
+        for (const item of cartItems) {
+          $(".cart-items").append(`<li class="cart-item">${item}</li>`);
+        }
+        $("#cart-total").text(cartTotal);
+      }
+    });
+  </script>
+</body>
+</html>
